@@ -14,7 +14,8 @@ class JobController extends Controller
 
     public function store(Request $request)
     {
-        return Job::create($request->all());
+        $job = Job::create($request->all());
+        return response()->json($job, 201);
     }
 
     public function show(Job $job)
@@ -25,7 +26,7 @@ class JobController extends Controller
     public function update(Request $request, Job $job)
     {
         $job->update($request->all());
-        return $job;
+        return response()->json($job, 200);
     }
 
     public function destroy(Job $job)

@@ -19,4 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('jobs', JobController::class);
+Route::resource('jobs', JobController::class)->only(['index', 'store', 'show', 'update', 'destroy']);
